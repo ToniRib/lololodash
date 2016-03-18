@@ -9,13 +9,17 @@ var analyze = function(freelancers) {
 
   var average = total / freelancers.length;
 
-  var underperform = _.chain(freelancers).filter(function (freelancer) {
-    return freelancer.income <= average;
-  }).sortBy('income');
+  var underperform = _.chain(freelancers)
+    .filter(function (freelancer) {
+      return freelancer.income <= average;
+    })
+    .sortBy('income');
 
-  var overperform = _.chain(freelancers).filter(function (freelancer) {
-    return freelancer.income > average;
-  }).sortBy('income');
+  var overperform = _.chain(freelancers)
+    .filter(function (freelancer) {
+      return freelancer.income > average;
+    })
+    .sortBy('income');
 
   return {
     average: average,
